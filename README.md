@@ -1,0 +1,2 @@
+# TextMarqueeView
+原生TextView的marquee写法，只是针对点击position做了判断
