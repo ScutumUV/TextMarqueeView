@@ -18,6 +18,7 @@
   setMarqueeTextColors(color: Int){
   }
 
+
   如果想每一个数据都设置不同的字体，请使用：
 
   tv1.setMarqueeAdapter(object : MarqueeAdapter {
