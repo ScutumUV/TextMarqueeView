@@ -38,5 +38,5 @@
   tv1.setDatas(arr)
 
   需要注意的是，设置字体颜色需要在setDatas()方法之前调用
-  
+
 - ![演示.gif](演示.gif)
