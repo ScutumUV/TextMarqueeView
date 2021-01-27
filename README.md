@@ -5,20 +5,20 @@
 具体用法：
 
 1、默认字体颜色为#999999，如果需要设置字体颜色，请使用：
-\<br>
+<br>
 ```Java
   app:marqueeTextColor="@color/colorPrimary"
 ```
 
   或
-\<br>
+<br>
 ```Java
   setTextColor(color: Int){
   }
 ```
 
   或
-\<br>
+<br>
 ```Java
   setMarqueeTextColors(color: Int){
   }
@@ -26,7 +26,7 @@
 
 
   如果想每一个数据都设置不同的字体，请使用：
-\<br>
+<br>
 ```Java
   tv1.setMarqueeAdapter(object : MarqueeAdapter {
 
@@ -43,7 +43,7 @@
 
 
 2、如果想要拥有点击事件，请使用：
-\<br>
+<br>
 ```Java
   tv1.setOnMarqueeItemClickListener(object : OnMarqueeItemClickListener {
 
@@ -57,7 +57,7 @@
 ```
 
 3、创建数据
-\<br>
+<br>
 ```Java
   val arr: MutableList<CharSequence> = mutableListOf(
 
@@ -74,7 +74,7 @@
   )
 ```
 
-\<br>
+<br>
 ```Java
   tv1.setDatas(arr)
 ```
