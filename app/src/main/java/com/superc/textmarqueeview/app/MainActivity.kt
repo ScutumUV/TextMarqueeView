@@ -33,18 +33,19 @@ open class MainActivity : AppCompatActivity() {
                 "11人获救！90秒回顾栖霞金矿被困矿工升井瞬间 每一次都掌声雷动！",
                 "国家发改委有关负责人回应热点 菜价有望逐步回归常年水平。"
         )
-        tv1.setMarqueeAdapter(object : MarqueeAdapter {
-            override fun bind(ds: TextPaint, position: Int, item: Any?) {
-                ds.isUnderlineText = false
-                ds.color = Color.parseColor("#FFA500")
-            }
-        })
+//        tv1.setMarqueeAdapter(object : MarqueeAdapter {
+//            override fun bind(ds: TextPaint, position: Int, item: Any?) {
+//                ds.isUnderlineText = false
+//                ds.color = Color.parseColor("#FFA500")
+//            }
+//        })
         tv1.setOnMarqueeItemClickListener(object : OnMarqueeItemClickListener {
             override fun onMarqueeItemClick(widget: View, position: Int, item: Any?) {
                 Toast.makeText(this@MainActivity, position.toString() + " " + item?.toString(), Toast.LENGTH_SHORT).show()
             }
         })
-        tv1.postDelayed({ tv1.setDatas(arr) }, 1000)
+        tv1
+        tv1.postDelayed({ tv1.setDatas(arr) }, 5000)
     }
 
 }

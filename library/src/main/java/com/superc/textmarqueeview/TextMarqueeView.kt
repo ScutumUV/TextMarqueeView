@@ -2,6 +2,8 @@ package com.superc.textmarqueeview
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.res.ColorStateList
+import android.graphics.Color
 import android.text.SpannableStringBuilder
 import android.text.Spanned
 import android.text.TextPaint
@@ -29,12 +31,16 @@ open class TextMarqueeView : AppCompatTextView {
     protected var span: SpannableStringBuilderForAllvers? = null
     protected var onMarqueeItemClickListener: OnMarqueeItemClickListener? = null
     protected var adapter: MarqueeAdapter? = null
+    protected var marqueeTextColor: Int = Color.parseColor("#999999");
 
     constructor(context: Context) : this(context, null)
 
     constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
 
     constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
+        val a = context.obtainStyledAttributes(R.styleable.TextMarqueeView)
+        a.getColor(R.styleable.TextMarqueeView_marqueeTextColor, 0xff999999.toInt())
+        a.recycle()
         ellipsize = TextUtils.TruncateAt.MARQUEE
         isSingleLine = true
         marqueeRepeatLimit = -1
@@ -99,7 +105,6 @@ open class TextMarqueeView : AppCompatTextView {
     }
 
     protected open fun setText() {
-        if (adapter == null) return
         val builder: StringBuilder = StringBuilder()
         val startList: MutableList<Int> = ArrayList()
         val endList: MutableList<Int> = ArrayList()
@@ -128,6 +133,8 @@ open class TextMarqueeView : AppCompatTextView {
 
                 override fun updateDrawState(ds: TextPaint) {
                     super.updateDrawState(ds)
+                    ds.color = marqueeTextColor
+                    ds.isUnderlineText = false
                     adapter?.bind(ds, i, getDatas()[i])
                 }
             }, startList[i], endList[i], Spanned.SPAN_INCLUSIVE_EXCLUSIVE)
@@ -137,6 +144,20 @@ open class TextMarqueeView : AppCompatTextView {
 
     open fun getDatas(): List<*> {
         return (if (data == null) java.util.ArrayList<Any?>().also { data = it } else data)!!
+    }
+
+    override fun setTextColor(color: Int) {
+        marqueeTextColor = color
+        super.setTextColor(color)
+    }
+
+    override fun setTextColor(colors: ColorStateList?) {
+        super.setTextColor(colors)
+    }
+
+    open fun setMarqueeTextColors(color: Int): TextMarqueeView {
+        this.marqueeTextColor = color
+        return this
     }
 
     open fun setDatas(datas: MutableList<*>): TextMarqueeView {
