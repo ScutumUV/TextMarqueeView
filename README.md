@@ -7,10 +7,14 @@
 1、默认字体颜色为#999999，如果需要设置字体颜色，请使用：
 
   app:marqueeTextColor="@color/colorPrimary"
+
   或
+
   setTextColor(color: Int){
   }
+
   或
+
   setMarqueeTextColors(color: Int){
   }
 
