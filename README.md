@@ -20,14 +20,14 @@
             }
   })
 
-  2、如果想要拥有点击事件，请使用：
+2、如果想要拥有点击事件，请使用：
   tv1.setOnMarqueeItemClickListener(object : OnMarqueeItemClickListener {
              override fun onMarqueeItemClick(widget: View, position: Int, item: Any?) {
                 Toast.makeText(this@MainActivity, position.toString() + " " + item?.toString(), Toast.LENGTH_SHORT).show()
              }
   })
 
-  3、创建数据
+3、创建数据
   val arr: MutableList<CharSequence> = mutableListOf(
                   "昆明劫持案细节曝光：嫌犯被击毙前要求见女记者，她站出来了！",
                   "拜登贴身的亚裔特工一夜爆红，他到底是什么来头？",
