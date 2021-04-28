@@ -20,7 +20,7 @@ import androidx.appcompat.widget.AppCompatTextView
  * @version: 1.0
  * @create-date: 2021/1/26 10:34
  * @last-modify-date: 2021/1/26 10:34
- * @description:
+ * @description: 跑马灯view
  */
 open class TextMarqueeView : AppCompatTextView {
 
@@ -88,6 +88,7 @@ open class TextMarqueeView : AppCompatTextView {
 
     protected open fun getMarqueeScroll(): FloatArray {
         try {
+            ReflectionLimit.clearLimit();
             val field = this.javaClass.superclass.superclass.getDeclaredField("mMarquee")
             field.isAccessible = true
             val marquee = field[this]
